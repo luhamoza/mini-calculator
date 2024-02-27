@@ -20,14 +20,7 @@ class Program
         string? seeList = AskUserToSeeTheLatestCalculation(num1, num2, choice);
         Console.WriteLine();
 
-        // allow user to use the result of the previous calculation for another calculation
-        Console.Write("Would you like to use the result of the previous calculation for another calculation? (yes/no): ");
-        string? useResult = Console.ReadLine();
-        if (useResult?.ToLower() == "yes")
-        {
-
-            Main(args);
-        }
+        // TODO: allow user to use the result of the previous calculation for another calculation
 
         string? anotherCalculation = AskUserForAnotherCalculation();
         if (anotherCalculation?.ToLower() == "yes")
@@ -57,7 +50,7 @@ class Program
         {
             Console.WriteLine("Goodbye!");
         }
-        return seeList ?? ""; // Return a non-null value
+        return seeList ?? "";
     }
     private static int OperationUsed = 0;
     private static void AmountOfOperationsUsed(int choice)
@@ -89,7 +82,6 @@ class Program
             operations.Add($"The division of {num1} and {num2} is {num1 / num2}");
         }
 
-        // display the list of calculations
         Console.WriteLine("Latest calculations: ");
         foreach (string operation in operations)
         {
@@ -97,7 +89,6 @@ class Program
         }
         Console.WriteLine();
 
-        // give user ability to delete the list
         Console.Write("Would you like to delete the latest calculations? (yes/no): ");
         string? deleteList = Console.ReadLine();
         if (deleteList?.ToLower() == "yes")
